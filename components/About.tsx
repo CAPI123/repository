@@ -157,8 +157,8 @@ export default function About() {
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="glass p-4 rounded-xl">
-                  <div className="text-2xl font-bold gradient-text mb-1">24</div>
-                  <div className="text-sm text-gray-400">Years Old</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">5+</div>
+                  <div className="text-sm text-gray-400">Years Of Coding</div>
                 </div>
                 <div className="glass p-4 rounded-xl">
                   <div className="text-2xl font-bold gradient-text mb-1">Nairobi</div>
