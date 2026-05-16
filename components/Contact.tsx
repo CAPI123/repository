@@ -1,9 +1,9 @@
 'use client'
 
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiMail, FiMapPin, FiSend } from 'react-icons/fi'
-import { useState } from 'react'
 import { NeuralNetwork, HolographicGrid, GlowOrb } from './MotionGraphics'
 
 export default function Contact() {
@@ -182,7 +182,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
                       placeholder="Opportunity or Collaboration"
                     />
-                  </motion.div>
+                  </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message
@@ -196,7 +196,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
                       placeholder="Tell me about the role or project..."
                     />
-                  </motion.div>
+                  </div>
                   <AnimatePresence>
                     {submitStatus === 'success' && (
                       <motion.div
