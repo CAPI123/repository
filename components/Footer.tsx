@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiGithub, FiTwitter, FiLinkedin, FiArrowUp } from 'react-icons/fi'
+import { FiMail, FiArrowUp } from 'react-icons/fi'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -14,33 +14,20 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} <span className="text-white font-semibold">Eugine Obiero</span>. All Rights Reserved.
+              © {new Date().getFullYear()}{' '}
+              <span className="text-white font-semibold">Paul Santilan</span>. All Rights Reserved.
             </p>
-            <p className="text-gray-500 text-sm mt-1">
-              Designed & Built with ❤️
-            </p>
+            <p className="text-gray-500 text-sm mt-1">Data Analytics & AI Professional · Remote, USA</p>
           </div>
 
-          <div className="flex items-center gap-6">
-            {[
-              { icon: FiGithub, href: 'https://github.com/billionaireobi', label: 'GitHub' },
-              { icon: FiTwitter, href: 'https://x.com/pipxinstall', label: 'Twitter' },
-              { icon: FiLinkedin, href: '#', label: 'LinkedIn' },
-            ].map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                whileHover={{ scale: 1.2, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label={label}
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </div>
+          <motion.a
+            href="mailto:paulsantilan897@gmail.com"
+            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            whileHover={{ scale: 1.05 }}
+          >
+            <FiMail className="w-5 h-5" />
+            paulsantilan897@gmail.com
+          </motion.a>
 
           <motion.button
             onClick={scrollToTop}
@@ -56,4 +43,3 @@ export default function Footer() {
     </footer>
   )
 }
-

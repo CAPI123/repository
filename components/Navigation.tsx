@@ -7,9 +7,9 @@ import { FiMenu, FiX } from 'react-icons/fi'
 const navItems = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ]
 
@@ -35,16 +35,15 @@ export default function Navigation() {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <motion.div className="flex items-center justify-between">
             <motion.a
               href="#hero"
               className="text-2xl font-bold gradient-text"
               whileHover={{ scale: 1.05 }}
             >
-              Eugine Obiero
+              Paul Santilan
             </motion.a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <motion.a
@@ -63,22 +62,21 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Let's Work Together
+                Contact
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden text-white text-2xl"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <FiX /> : <FiMenu />}
             </button>
-          </div>
+          </motion.div>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -103,7 +101,7 @@ export default function Navigation() {
                 className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-white font-medium text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Let's Work Together
+                Contact
               </a>
             </div>
           </motion.div>
@@ -112,4 +110,3 @@ export default function Navigation() {
     </>
   )
 }
-

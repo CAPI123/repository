@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     // Email options
     const mailOptions = {
       from: 'eugineosoroobiero@gmail.com',
-      to: 'eugineosoroobiero@gmail.com',
+      to: 'paulsantilan897@gmail.com',
       replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
       html: `
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
                 This email was sent from your portfolio contact form at <a href="https://eugineobiero.com" style="color: #667eea; text-decoration: none;">eugineobiero.com</a>
               </p>
               <p style="color: #adb5bd; margin: 10px 0 0 0; font-size: 12px;">
-                © ${new Date().getFullYear()} Eugine Obiero. All rights reserved.
+                © ${new Date().getFullYear()} Paul Santilan. All rights reserved.
               </p>
             </div>
           </div>

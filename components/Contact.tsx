@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi'
+import { FiMail, FiMapPin, FiSend } from 'react-icons/fi'
 import { useState } from 'react'
 import { NeuralNetwork, HolographicGrid, GlowOrb } from './MotionGraphics'
 
@@ -20,14 +20,13 @@ export default function Contact() {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -36,8 +35,6 @@ export default function Contact() {
         },
         body: JSON.stringify(formData),
       })
-
-      const data = await response.json()
 
       if (response.ok) {
         setSubmitStatus('success')
@@ -58,28 +55,21 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: FiPhone,
-      label: 'Phone',
-      value: '+254 741 486 427',
-      href: 'tel:+254741486427',
-    },
-    {
       icon: FiMail,
       label: 'Email',
-      value: 'eugineosoroobiero@gmail.com',
-      href: 'mailto:eugineosoroobiero@gmail.com',
+      value: 'paulsantilan897@gmail.com',
+      href: 'mailto:paulsantilan897@gmail.com',
     },
     {
       icon: FiMapPin,
       label: 'Location',
-      value: 'Nairobi, Kenya',
+      value: 'Remote, USA',
       href: '#',
     },
   ]
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      {/* AR/VR Background Effects */}
       <NeuralNetwork />
       <HolographicGrid />
       <GlowOrb className="top-20 left-20 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-purple-500/10" />
@@ -92,7 +82,6 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          {/* Section Header */}
           <div className="text-center mb-16">
             <motion.h2
               className="text-4xl md:text-5xl font-bold mb-4"
@@ -100,7 +89,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
             >
-              Let's <span className="gradient-text">Work Together</span>
+              Let&apos;s <span className="gradient-text">Connect</span>
             </motion.h2>
             <motion.p
               className="text-gray-400 text-lg max-w-2xl mx-auto"
@@ -108,13 +97,12 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
             >
-              Have a project in mind? Let's discuss how we can bring your ideas to life
+              Open to opportunities in data analytics, AI, and machine learning
             </motion.p>
           </div>
 
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Info */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -122,9 +110,10 @@ export default function Contact() {
               >
                 <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
                 <p className="text-gray-400 mb-8">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                  I&apos;m available for roles and collaborations where data, machine learning, and
+                  analytics drive meaningful business outcomes.
                 </p>
-                <div className="space-y-6">
+                <motion.div className="space-y-6">
                   {contactInfo.map((info) => (
                     <motion.a
                       key={info.label}
@@ -136,15 +125,14 @@ export default function Contact() {
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm text-gray-400">{info.label}</div>
-                        <div className="text-white font-medium">{info.value}</div>
+                        <motion.div className="text-sm text-gray-400">{info.label}</motion.div>
+                        <motion.div className="text-white font-medium">{info.value}</motion.div>
                       </div>
                     </motion.a>
                   ))}
-                </div>
+                </motion.div>
               </motion.div>
 
-              {/* Contact Form */}
               <motion.form
                 onSubmit={handleSubmit}
                 className="glass p-8 rounded-2xl"
@@ -167,7 +155,7 @@ export default function Contact() {
                       placeholder="Your Name"
                     />
                   </div>
-                  <div>
+                  <motion.div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email
                     </label>
@@ -180,7 +168,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
                       placeholder="your.email@example.com"
                     />
-                  </div>
+                  </motion.div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium mb-2">
                       Subject
@@ -192,9 +180,9 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
-                      placeholder="Project Discussion"
+                      placeholder="Opportunity or Collaboration"
                     />
-                  </div>
+                  </motion.div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message
@@ -206,9 +194,9 @@ export default function Contact() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
-                      placeholder="Tell me about your project..."
+                      placeholder="Tell me about the role or project..."
                     />
-                  </div>
+                  </motion.div>
                   <AnimatePresence>
                     {submitStatus === 'success' && (
                       <motion.div
@@ -217,7 +205,7 @@ export default function Contact() {
                         exit={{ opacity: 0, y: -10 }}
                         className="px-4 py-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm"
                       >
-                        ✓ Message sent successfully! I'll get back to you soon.
+                        Message sent successfully. I&apos;ll get back to you soon.
                       </motion.div>
                     )}
                     {submitStatus === 'error' && (
@@ -227,7 +215,7 @@ export default function Contact() {
                         exit={{ opacity: 0, y: -10 }}
                         className="px-4 py-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm"
                       >
-                        ✗ Failed to send message. Please try again or email directly.
+                        Failed to send. Please email paulsantilan897@gmail.com directly.
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -238,14 +226,6 @@ export default function Contact() {
                     whileHover={isSubmitting ? {} : { scale: 1.02 }}
                     whileTap={isSubmitting ? {} : { scale: 0.98 }}
                   >
-                    {isSubmitting && (
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700"
-                        initial={{ x: '-100%' }}
-                        animate={{ x: '100%' }}
-                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                      />
-                    )}
                     <span className="relative z-10 flex items-center gap-2">
                       {isSubmitting ? (
                         <>
@@ -269,8 +249,7 @@ export default function Contact() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }
-
