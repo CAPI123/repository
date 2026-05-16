@@ -178,14 +178,14 @@ export default function About() {
                         d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                       />
                     </svg>
-                  </motion.div>
+                  </div>
                   <div>
-                    <div className="font-semibold text-white text-sm">{cert.title}</motion.div>
-                    <div className="text-sm text-gray-400">{cert.issuer}</motion.div>
+                    <div className="font-semibold text-white text-sm">{cert.title}</div>
+                    <div className="text-sm text-gray-400">{cert.issuer}</div>
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

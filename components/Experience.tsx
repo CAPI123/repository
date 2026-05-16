@@ -96,7 +96,7 @@ export default function Experience() {
               <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <FiBriefcase className="w-7 h-7 text-white" />
-                </motion.div>
+                </div>
                 <motion.div className="flex-1">
                   <h3 className="text-xl font-bold text-white">{job.title}</h3>
                   <p className="text-purple-300 font-medium">{job.company}</p>
